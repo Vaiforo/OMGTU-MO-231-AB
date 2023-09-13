@@ -6,6 +6,6 @@ for i in range(n):
           k * 2 + l * 2 + \
           i * l * 2
 
-print(out)
+print(f"Циклом: {out}")
 
-print(2 * n * (p + k + l) + l * n * (n - 1))
+print(f"Формулой: {2 * n * (p + k + l) + l * n * (n - 1)}")
