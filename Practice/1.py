@@ -18,23 +18,39 @@ def prog(nums):
             else:
                 y -= L
                 L = 0
-    while (c2 + c3 < c1 or c2 + c3 < c4 + c5) and L and (x or y):
-        suma += [(c2 + c3) * L]
-        if x >= L:
-            x -= L
-            L = 0
-        elif y >= L:
-            y -= L
-            L = 0
-        else:
-            if x < y:
-                y -= L - x
-                L -= x
-                x = 0
+    for _ in range(3):
+        if (c2 + c3 < c1 or c2 + c3 < c4 + c5) and L and (x or y):
+            if x >= L:
+                x -= L
+                suma += [(c2 + c3) * L]
+                L = 0
+            elif y >= L:
+                y -= L
+                suma += [(c2 + c3) * L]
+                L = 0
             else:
-                x -= L - y
-                L -= y
-                y = 0
+                if x < y:
+                    l = L
+                    Y = y
+                    y -= L - x
+                    L -= x + Y - y
+                    x = 0
+                    if y < 0:
+                        L = abs(y)
+                        y = 0
+                    suma += [(c2 + c3) * (l - L)]
+                else:
+                    l = L
+                    X = x
+                    x -= L - y
+                    L -= y + X - x
+                    y = 0
+                    if x < 0:
+                        L = abs(x)
+                        x = 0
+                    suma += [(c2 + c3) * (l - L)]
+        else:
+            break
     print(x, y, L)
     suma += [(c4 + c5) * (x + y) + L * (c6 + c2)]
 
@@ -45,7 +61,7 @@ def prog(nums):
     return min(ready)
 
 
-for i in range(9, 10):
+for i in range(14, 15):
     name = "0" + str(i) if len(str(i)) == 1 else str(i)
     with open(f"Постройка дома\input_s1_{name}.txt", encoding="utf8") as file:
         numbers = list(map(int, file.readline().split()))
