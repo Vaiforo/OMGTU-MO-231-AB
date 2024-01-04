@@ -54,7 +54,6 @@ def prog(nums):
     print(x, y, L)
     suma += [(c4 + c5) * (x + y) + L * (c6 + c2)]
 
-
     ready += [sum(suma)]
     print(*ready, suma)
 
