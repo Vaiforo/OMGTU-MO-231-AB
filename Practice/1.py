@@ -1,70 +1,73 @@
-def prog(nums):
-    x, y, L, c1, c2, c3, c4, c5, c6 = nums
-    x, y = x * 2, y * 2
-    ready = [(c4 + c5) * (x + y) + (c6 + c2) * L]
-    suma = []
-    if c1 < c2 + c3 or c1 < c4 + c5:
-        suma += [c1 * max([x // 2, y // 2]) if L > max([x // 2, y // 2]) else L * c1]
-        if L > max([x // 2, y // 2]):
-            L -= max([x // 2, y // 2])
-            if x > y:
-                x //= 2
+import random
+import struct
+
+A = 'abcd'
+P = [2, 5, 5, 4]
+r = 4
+
+
+def coding(text):
+    beg, end = 0, 1
+    prob = 1
+    k = k1 = 0
+    code = ''
+
+    for symbol in text:
+        pos = A.find(symbol)
+        end = beg * (2 ** r) + prob * sum(P[0:pos + 1])
+        beg = beg * (2 ** r) + prob * sum(P[0:pos])
+        prob = prob * P[pos]
+        k += r
+        k1 += r
+
+        while True:
+            if end < 2 ** (k - 1):
+                k -= 1
+                code += '0'
+            elif beg >= 2 ** (k - 1):
+                beg -= 2 ** (k - 1)
+                end -= 2 ** (k - 1)
+                k -= 1
+                code += '1'
+            elif beg % 2 == 0 and end % 2 == 0:
+                beg /= 2
+                end /= 2
+                prob /= 2
+                k -= 1
+            elif k > 30:
+                beg //= 2
+                end //= 2
+                prob = end - beg
+                k -= 1
             else:
-                y //= 2
-        else:
-            if x > y:
-                x -= L
-                L = 0
-            else:
-                y -= L
-                L = 0
-    for _ in range(3):
-        if (c2 + c3 < c1 or c2 + c3 < c4 + c5) and L and (x or y):
-            if x >= L:
-                x -= L
-                suma += [(c2 + c3) * L]
-                L = 0
-            elif y >= L:
-                y -= L
-                suma += [(c2 + c3) * L]
-                L = 0
-            else:
-                if x < y:
-                    l = L
-                    Y = y
-                    y -= L - x
-                    L -= x + Y - y
-                    x = 0
-                    if y < 0:
-                        L = abs(y)
-                        y = 0
-                    suma += [(c2 + c3) * (l - L)]
-                else:
-                    l = L
-                    X = x
-                    x -= L - y
-                    L -= y + X - x
-                    y = 0
-                    if x < 0:
-                        L = abs(x)
-                        x = 0
-                    suma += [(c2 + c3) * (l - L)]
-        else:
-            break
-    print(x, y, L)
-    suma += [(c4 + c5) * (x + y) + L * (c6 + c2)]
-
-    ready += [sum(suma)]
-    print(*ready, suma)
-
-    return min(ready)
+                break
+    return code
 
 
-for i in range(14, 15):
-    name = "0" + str(i) if len(str(i)) == 1 else str(i)
-    with open(f"Постройка дома\input_s1_{name}.txt", encoding="utf8") as file:
-        numbers = list(map(int, file.readline().split()))
-    with open(f"Постройка дома\output_s1_{name}.txt", encoding="utf8") as file:
-        check_out = int(file.readline())
-    print(i, numbers, check_out)
-    print(prog(numbers) == check_out)
+s = ''
+for i in range(5):
+    ln = random.randint(1, 7)
+    for j in range(ln):
+        s += random.choice('abcd')
+    s += ' '
+
+with open('s.txt', 'w') as f:
+    f.write(s)
+
+code = coding(s)
+
+pack = b''
+for i in range(0, len(code), 8):
+    pack += struct.pack('B', int(code[i:i + 8], 2))
+
+with open('pack_code.txt', 'wb') as f:
+    f.write(pack)
+
+with open('pack_code.txt', 'rb') as f:
+    unpack = f.read()
+
+code_unpack = ''
+for i in unpack:
+    code_unpack += '{0:08b}'.format(i)
+
+print(f'Is the original code equal to the code converted from bytes: {code_unpack == code}')
