@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\programming\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj": {}
+    "E:\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj": {}
   },
   "projects": {
-    "C:\\programming\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj": {
+    "E:\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\programming\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj",
+        "projectUniqueName": "E:\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj",
         "projectName": "Notebook",
-        "projectPath": "C:\\programming\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\programming\\OMGTU-MO-231-AB\\Practice\\Notebook\\obj\\",
+        "projectPath": "E:\\OMGTU-MO-231-AB\\Practice\\Notebook\\Notebook.csproj",
+        "packagesPath": "C:\\Users\\vaiforo\\.nuget\\packages\\",
+        "outputPath": "E:\\OMGTU-MO-231-AB\\Practice\\Notebook\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\vaiforo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

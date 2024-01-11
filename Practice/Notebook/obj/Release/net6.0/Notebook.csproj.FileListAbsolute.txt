@@ -12,3 +12,17 @@ C:\programming\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\refint\Noteb
 C:\programming\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.pdb
 C:\programming\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.genruntimeconfig.cache
 C:\programming\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\ref\Notebook.dll
+E:\OMGTU-MO-231-AB\Practice\Notebook\bin\Release\net6.0\Notebook.exe
+E:\OMGTU-MO-231-AB\Practice\Notebook\bin\Release\net6.0\Notebook.deps.json
+E:\OMGTU-MO-231-AB\Practice\Notebook\bin\Release\net6.0\Notebook.runtimeconfig.json
+E:\OMGTU-MO-231-AB\Practice\Notebook\bin\Release\net6.0\Notebook.dll
+E:\OMGTU-MO-231-AB\Practice\Notebook\bin\Release\net6.0\Notebook.pdb
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.GeneratedMSBuildEditorConfig.editorconfig
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.AssemblyInfoInputs.cache
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.AssemblyInfo.cs
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.csproj.CoreCompileInputs.cache
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.dll
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\refint\Notebook.dll
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.pdb
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\Notebook.genruntimeconfig.cache
+E:\OMGTU-MO-231-AB\Practice\Notebook\obj\Release\net6.0\ref\Notebook.dll

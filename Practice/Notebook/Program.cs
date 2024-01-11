@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 
 class Notebook {
-    enum screeenStatuses {
+    enum screenStatuses {
         Menu,
         FindByNumber,
         ChooseParam,
@@ -22,7 +22,7 @@ class Notebook {
         Date,
     }
 
-    static screeenStatuses statusScr = screeenStatuses.Menu;
+    static screenStatuses statusScr = screenStatuses.Menu;
     static printParams printByParam = printParams.Number; 
     static string findParam; 
     static string error;
@@ -77,7 +77,7 @@ class Notebook {
 
         int down = Console.CursorTop;
 
-        statusScr = (screeenStatuses)Choose(ref top, ref y, ref down) + 1;
+        statusScr = (screenStatuses)Choose(ref top, ref y, ref down) + 1;
     }
 
     static void FindByNumber() {
@@ -98,7 +98,7 @@ class Notebook {
 
         printByParam = printParams.Number;
 
-        if (error == "") statusScr = screeenStatuses.PrintByParam;
+        if (error == "") statusScr = screenStatuses.PrintByParam;
         // else повтор ввода
     }
 
@@ -121,7 +121,7 @@ class Notebook {
         int paramN = Choose(ref top, ref y, ref down);
         printByParam = (printParams)(paramN >= 3 ? paramN + 1 : paramN);
 
-        statusScr = screeenStatuses.FindByParam;
+        statusScr = screenStatuses.FindByParam;
     }
 
     static void FindByParam() {
@@ -143,6 +143,12 @@ class Notebook {
                 }
             }
         } else if ((int)printByParam == 5) {
+            foreach (char let in findParam) {
+                if (!char.IsDigit(let)) {
+                    error = "Некорректный год!";
+                    break;
+                }
+            }
             if (int.Parse(findParam) > DateTime.Now.Year || int.Parse(findParam) <= DateTime.Now.Year - 116) {
                 error = "Некорректный год!";
             }
@@ -158,7 +164,7 @@ class Notebook {
 
             findParam = mounths[Choose(ref top, ref y, ref down)];
 
-            statusScr = screeenStatuses.PrintByParam;
+            statusScr = screenStatuses.PrintByParam;
         } else if ((int)printByParam == 7) {
             int top = Console.CursorTop;
             int y = top;
@@ -169,10 +175,10 @@ class Notebook {
 
             findParam = $"{Choose(ref top, ref y, ref down) + 1}";
 
-            statusScr = screeenStatuses.PrintByParam;
+            statusScr = screenStatuses.PrintByParam;
         }
 
-        if (error == "") statusScr = screeenStatuses.PrintByParam;
+        if (error == "") statusScr = screenStatuses.PrintByParam;
         // else повтор ввода
     }
 
@@ -223,17 +229,17 @@ class Notebook {
         int check = Choose(ref top, ref y, ref down);
 
         if (check == 0) {
-            if ((int)printByParam != 3) statusScr = screeenStatuses.FindByParam;
-            else statusScr = screeenStatuses.FindByNumber;
+            if ((int)printByParam != 3) statusScr = screenStatuses.FindByParam;
+            else statusScr = screenStatuses.FindByNumber;
         }
         else if (check == 1 && (int)printByParam != 3) {
-            statusScr = screeenStatuses.ChooseParam;
+            statusScr = screenStatuses.ChooseParam;
             sortPersons.Clear();
             foreach (Person person in newSortedPersons) {
                 sortPersons.Add(person);
             }
         }
-        else statusScr = screeenStatuses.Menu;
+        else statusScr = screenStatuses.Menu;
     }
 
     static int Choose(ref int top, ref int y, ref int down) {
@@ -271,6 +277,6 @@ class Notebook {
         persons.Add(new Person("Серов", "Петр", "Олегович", "7234243", "Новосибирск", "1999", "март", "15"));
         persons.Add(new Person("Серов", "Аркадий", "Олегович", "45645475", "Омск", "1996", "апрель", "17"));
         persons.Add(new Person("Куликов", "Марк", "Олегович", "86786867", "Новосибирск", "1996", "декабрь", "15"));
-        persons.Add(new Person("Гений", "Арсений", "Валерьевич", "2346456", "Уфа", "1996", "апрель", "25"));
+        persons.Add(new Person("Гений", "Арсений", "Валерьевич", "2346456", "Уфа", "1996", "апрель", "17"));
     }
 }
