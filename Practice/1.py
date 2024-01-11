@@ -1,73 +1,40 @@
-import random
-import struct
+def prog(nums):
+    n_start_c = nums[0]
+    k_start_a = nums[1]
+    n_end_d = nums[2]
+    k_end_b = nums[3]
+    n_start_e = nums[4]
+    for i in range(len(n_start_e)):
+        for j in range(k_start_a[0]):
+            if n_start_e[i] > k_start_a[j + 1]:
+                n_start_e[i] -= 1
+        if i != len(n_start_e) - 1:
+            n_start_e[i] *= n_start_c[i + 1]
 
-A = 'abcd'
-P = [2, 5, 5, 4]
-r = 4
-
-
-def coding(text):
-    beg, end = 0, 1
-    prob = 1
-    k = k1 = 0
-    code = ''
-
-    for symbol in text:
-        pos = A.find(symbol)
-        end = beg * (2 ** r) + prob * sum(P[0:pos + 1])
-        beg = beg * (2 ** r) + prob * sum(P[0:pos])
-        prob = prob * P[pos]
-        k += r
-        k1 += r
-
-        while True:
-            if end < 2 ** (k - 1):
-                k -= 1
-                code += '0'
-            elif beg >= 2 ** (k - 1):
-                beg -= 2 ** (k - 1)
-                end -= 2 ** (k - 1)
-                k -= 1
-                code += '1'
-            elif beg % 2 == 0 and end % 2 == 0:
-                beg /= 2
-                end /= 2
-                prob /= 2
-                k -= 1
-            elif k > 30:
-                beg //= 2
-                end //= 2
-                prob = end - beg
-                k -= 1
-            else:
-                break
-    return code
+    t = sum(n_start_e)
+    c = []
+    m = n_end_d[0] - 1
+    del n_end_d[0]
+    n2 = sorted(n_end_d)
+    for i in range(m):
+        c.insert(0, t % n2[i])
+        t = t // n2[i]
+    c.insert(0, t)
+    for i in range(len(k_end_b) - 1):
+        for j in range(len(c)):
+            if c[j] > k_end_b[i + 1]:
+                c[j] += 1
+    return c
 
 
-s = ''
-for i in range(5):
-    ln = random.randint(1, 7)
-    for j in range(ln):
-        s += random.choice('abcd')
-    s += ' '
-
-with open('s.txt', 'w') as f:
-    f.write(s)
-
-code = coding(s)
-
-pack = b''
-for i in range(0, len(code), 8):
-    pack += struct.pack('B', int(code[i:i + 8], 2))
-
-with open('pack_code.txt', 'wb') as f:
-    f.write(pack)
-
-with open('pack_code.txt', 'rb') as f:
-    unpack = f.read()
-
-code_unpack = ''
-for i in unpack:
-    code_unpack += '{0:08b}'.format(i)
-
-print(f'Is the original code equal to the code converted from bytes: {code_unpack == code}')
+for i in range(1, 15):
+    with open(f"Обмен денег\input{i}.txt", encoding="utf8") as file:
+        data = file.readlines()
+        data = list(map(lambda x: list(map(int, x.rstrip('\n').split())), data))
+    with open(f"Обмен денег\output{i}.txt", encoding="utf8") as file:
+        out = list(map(int, file.readline().split()))
+        print(i)
+        res = prog(data)
+        print(out, res)
+        print(res == out)
+        print()
