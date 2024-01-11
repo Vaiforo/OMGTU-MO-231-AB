@@ -3,9 +3,9 @@ public class Person {
     private string Name;
     private string Patronymic;
     private string Number;
-    private string Adress = ":Нет данных:";
+    private string Address = ":Нет данных:";
     private string Year = ":Нет данных:";
-    private string Mounth = "";
+    private string Month = "";
     private string Date = "";
 
     public Person(string Surname, string Name, string Patronymic, string Number) {
@@ -15,30 +15,30 @@ public class Person {
         this.Number = Number;
     }
     
-    public Person(string Surname, string Name, string Patronymic, string Number, string Adress) {
+    public Person(string Surname, string Name, string Patronymic, string Number, string Address) {
         this.Surname = Surname;
         this.Name = Name;
         this.Patronymic = Patronymic;
         this.Number = Number;
-        this.Adress = Adress;
+        this.Address = Address;
     }
 
-    public Person(string Surname, string Name, string Patronymic, string Number, string Adress, string Year, string Mounth, string Date) {
+    public Person(string Surname, string Name, string Patronymic, string Number, string Address, string Year, string Month, string Date) {
         this.Surname = Surname;
         this.Name = Name;
         this.Patronymic = Patronymic;
         this.Number = Number;
-        this.Adress = Adress;
+        this.Address = Address;
         this.Year = Year;
-        this.Mounth = Mounth;
+        this.Month = Month;
         this.Date = Date;
     }
 
     public void printData(int[] parametrs) {
         string data = parametrs[3] == 1 ? $"Номер телефона: {Number}\n" : "";
         data += parametrs[0] + parametrs[1] + parametrs[2] >= 1 ? $"ФИО: {(parametrs[0] == 1 ? Surname + " " : "")}{(parametrs[1] == 1 ? Name + " " : "")}{(parametrs[2] == 1 ? Patronymic : "")}\n" : "";
-        data += parametrs[4] == 1 ? $"Адрес проживания: {Adress}\n" : "";
-        data += parametrs[5] + parametrs[6] + parametrs[7] >= 1 ? $"Дата рождения: {(parametrs[5] == 1 ? Year + " " : "")}{(parametrs[6] == 1 ? Mounth + " " : "")}{(parametrs[7] == 1 ? Date : "")}\n" : "";
+        data += parametrs[4] == 1 ? $"Адрес проживания: {Address}\n" : "";
+        data += parametrs[5] + parametrs[6] + parametrs[7] >= 1 ? $"Дата рождения: {(parametrs[5] == 1 ? Year + " " : "")}{(parametrs[6] == 1 ? Month + " " : "")}{(parametrs[7] == 1 ? Date : "")}\n" : "";
         data += "-------------------------------------------------------------------------------------------";
         Console.WriteLine(data);
     }
@@ -59,16 +59,16 @@ public class Person {
         return number == Number;
     }
 
-    public bool isAdress(string adress) {
-        return adress == Adress;
+    public bool isAddress(string adress) {
+        return adress == Address;
     }
 
     public bool isYear(string year) {
         return year == Year;
     }
 
-    public bool isMounth(string mounth) {
-        return mounth == Mounth;
+    public bool isMonth(string month) {
+        return month == Month;
     }
 
     public bool isDate(string date) {
@@ -80,9 +80,9 @@ public class Person {
         return int.Parse(Year);
     }
 
-    public string getMounth() {
-        if (Mounth == ":Нет данных:") return "январь";
-        return Mounth;
+    public string getMonth() {
+        if (Month == ":Нет данных:") return "январь";
+        return Month;
     }
 
     public int getDate() {

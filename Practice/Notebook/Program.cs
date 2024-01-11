@@ -213,9 +213,9 @@ class Notebook {
             else if ((int)printByParam == 1) ok = person.isName(findParam);
             else if ((int)printByParam == 2) ok = person.isPatronymic(findParam);
             else if ((int)printByParam == 3) ok = person.isNumber(findParam);
-            else if ((int)printByParam == 4) ok = person.isAdress(findParam);
+            else if ((int)printByParam == 4) ok = person.isAddress(findParam);
             else if ((int)printByParam == 5) ok = person.isYear(findParam);
-            else if ((int)printByParam == 6) ok = person.isMounth(findParam);
+            else if ((int)printByParam == 6) ok = person.isMonth(findParam);
             else if ((int)printByParam == 7) ok = person.isDate(findParam);
 
             if (ok) {

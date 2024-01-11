@@ -8,9 +8,9 @@ public class PersonComparer: IComparer<Person>
         else if (x.getYear() == y.getYear()) return 0;
         else if (x.getYear() < y.getYear()) return -1;
         else {
-            if (FindIndex(mounths, x.getMounth()) < FindIndex(mounths, y.getMounth())) return 1;
-            else if (FindIndex(mounths, x.getMounth()) == FindIndex(mounths, y.getMounth())) return 0;
-            else if (FindIndex(mounths, x.getMounth()) > FindIndex(mounths, y.getMounth())) return -1;
+            if (FindIndex(mounths, x.getMonth()) < FindIndex(mounths, y.getMonth())) return 1;
+            else if (FindIndex(mounths, x.getMonth()) == FindIndex(mounths, y.getMonth())) return 0;
+            else if (FindIndex(mounths, x.getMonth()) > FindIndex(mounths, y.getMonth())) return -1;
             else {
                 if (x.getDate() > y.getDate()) return 1;
                 else if (x.getDate() == y.getDate()) return 0;
