@@ -83,7 +83,9 @@ class Notebook {
     static void FindByNumber() {
         Console.WriteLine("::::Поиск по номеру::::");
 
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(error);
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
         error = "";
 
         Console.Write("Ввидет номер искомого человека: ");
@@ -127,7 +129,9 @@ class Notebook {
     static void FindByParam() {
         Console.WriteLine("::::Поиск по параметру::::");
 
+        Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(error);
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
         error = "";
 
         if ((int)printByParam <= 5) {
@@ -278,5 +282,10 @@ class Notebook {
         persons.Add(new Person("Серов", "Аркадий", "Олегович", "45645475", "Омск", "1996", "апрель", "17"));
         persons.Add(new Person("Куликов", "Марк", "Олегович", "86786867", "Новосибирск", "1996", "декабрь", "15"));
         persons.Add(new Person("Гений", "Арсений", "Валерьевич", "2346456", "Уфа", "1996", "апрель", "17"));
+        persons.Add(new Person("Миров", "Генадий", "Петрович", "456752426", "Томск", "1997", "апрель", "17"));
+        persons.Add(new Person("Миров", "Марк", "Сергеевич", "2789369763", "Томск", "1998", "май", "15"));
+        persons.Add(new Person("Курчанов", "Генадий", "Сергеевич", "74892256111", "Новосибирск", "1998", "сентябрь", "23"));
+        persons.Add(new Person("Норинов", "Алексей", "Нурзулов", "43454124646", "Москва", "1998", "декабрь", "13"));
+        persons.Add(new Person("Макин", "Глеб", "Глебовчи", "234634626756", "Москва", "1998", "май", "27"));
     }
 }
