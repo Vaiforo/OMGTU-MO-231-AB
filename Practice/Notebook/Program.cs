@@ -153,8 +153,10 @@ class Notebook {
                     break;
                 }
             }
-            if (int.Parse(findParam) > DateTime.Now.Year || int.Parse(findParam) <= DateTime.Now.Year - 116) {
-                error = "Некорректный год!";
+            if (error != "") {
+                if (int.Parse(findParam) > DateTime.Now.Year || int.Parse(findParam) <= DateTime.Now.Year - 116) {
+                    error = "Некорректный год!";
+                }
             }
         } else if ((int)printByParam == 6) {
             int top = Console.CursorTop;

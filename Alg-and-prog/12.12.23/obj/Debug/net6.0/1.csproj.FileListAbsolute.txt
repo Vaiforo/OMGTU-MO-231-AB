@@ -26,3 +26,17 @@ E:\OMGTU-MO-231-AB\Practice\3\obj\Debug\net6.0\refint\1.dll
 E:\OMGTU-MO-231-AB\Practice\3\obj\Debug\net6.0\1.pdb
 E:\OMGTU-MO-231-AB\Practice\3\obj\Debug\net6.0\1.genruntimeconfig.cache
 E:\OMGTU-MO-231-AB\Practice\3\obj\Debug\net6.0\ref\1.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\bin\Debug\net6.0\1.exe
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\bin\Debug\net6.0\1.deps.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\bin\Debug\net6.0\1.runtimeconfig.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\bin\Debug\net6.0\1.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\bin\Debug\net6.0\1.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\1.GeneratedMSBuildEditorConfig.editorconfig
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\1.AssemblyInfoInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\1.AssemblyInfo.cs
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\1.csproj.CoreCompileInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\1.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\refint\1.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\1.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\1.genruntimeconfig.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\12.12.23\obj\Debug\net6.0\ref\1.dll
