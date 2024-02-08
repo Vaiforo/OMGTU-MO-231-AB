@@ -6,13 +6,13 @@ public class Auditorium {
 
     public void printAuditorumData() {
         Console.WriteLine($"Номер аудитории: {Number}");
-        Console.WriteLine($"Кол-во посадочных мест: {SitCount}; Проектор: {(Proecktor ? "есть" : "нет")}; Компьютеры: {(HavePc ? "есть" : "нет")}");
+        Console.WriteLine($"Кол-во посадочных мест: {SitCount}; Проектор: {(Proecktor ? "да" : "нет")}; Компьютеры: {(HavePc ? "да" : "нет")}");
     }
 
     public string setNumber(int number) {
         if (number >= 100 || number <= 10) return "Неверный номер аудитории!";
         else {
-            this.Number = number;
+            Number = number;
             return "";
         }
     }
@@ -20,17 +20,17 @@ public class Auditorium {
     public string setSitCount(int sitCount) {
         if (sitCount <= 0) return "Неверное кол-во посадочных мест!";
         else {
-            this.SitCount = sitCount;
+            SitCount = sitCount;
             return "";
         }
     }
 
     public void setProecktor(bool proecktor) {
-        this.Proecktor = proecktor;
+        Proecktor = proecktor;
     }
 
     public void setHavePC(bool havePc) {
-        this.HavePc = havePc;
+        HavePc = havePc;
     }
 
     public int getNumber() {

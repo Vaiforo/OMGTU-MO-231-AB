@@ -5,7 +5,7 @@ public class Audits {
         Menu,
         CreateBD,
         CreateNewAudit,
-        EditAudit,
+        EditAuditByNumber,
         CountSitAudits,
         HaveProecktorAudits,
         CountSitPcAudits,
@@ -52,58 +52,56 @@ public class Audits {
                     menu.skip();
                     break;
                 case 2:
-                    if (menu.check_bd_created(auditoriums)) {
-                        auditoriums.Add(menu.CreateNewAudit());
+                    if (menu.checkEmptyCreatedBd(auditoriums, false)) {
+                        menu.CreateNewAudit(auditoriums);
+                    }
+                    nowScreen = Screen.Menu;
+                    menu.skip();
+                    break;
+                case 3:
+                    if (menu.checkEmptyCreatedBd(auditoriums, false)) {
+                        menu.EditAuditByNumber(auditoriums);
                     }
                     nowScreen = Screen.Menu;
                     menu.skip();
                     break;
                 case 4:
-                    if (menu.check_bd_created(auditoriums)) {
-                        if (menu.check_empty_bd(auditoriums)) {
-                            menu.printCountSitAudits(auditoriums);
-                        }
+                    if (menu.checkEmptyCreatedBd(auditoriums, true)) {
+                        menu.printCountSitAudits(auditoriums);
                     }
                     nowScreen = Screen.Menu;
                     menu.skip();
                     break;
                 case 5:
-                    if (menu.check_bd_created(auditoriums)) {
-                        if (menu.check_empty_bd(auditoriums)) {
-                            menu.printHaveProecktorAudits(auditoriums);
-                        }
+                    if (menu.checkEmptyCreatedBd(auditoriums, true)) {
+                        menu.printHaveProecktorAudits(auditoriums);
                     }
                     nowScreen = Screen.Menu;
                     menu.skip();
                     break;
                 case 6:
-                    if (menu.check_bd_created(auditoriums)) {
-                        if (menu.check_empty_bd(auditoriums)) {
-                            menu.printCountSitPcAudits(auditoriums);
-                        }
+                    if (menu.checkEmptyCreatedBd(auditoriums, true)) {
+                        menu.printCountSitPcAudits(auditoriums);
                     }
                     nowScreen = Screen.Menu;
                     menu.skip();
                     break;
                 case 7:
-                    if (menu.check_bd_created(auditoriums)) {
-                        if (menu.check_empty_bd(auditoriums)) {
-                            menu.printStageAudits(auditoriums);
-                        }
+                    if (menu.checkEmptyCreatedBd(auditoriums, true)) {
+                        menu.printStageAudits(auditoriums);
                     }
                     nowScreen = Screen.Menu;
                     menu.skip();
                     break;
                 case 8:
-                    if (menu.check_bd_created(auditoriums)) {
-                        if (menu.check_empty_bd(auditoriums)) {
-                            menu.printAllAudits(auditoriums);
-                        }
+                    if (menu.checkEmptyCreatedBd(auditoriums, true)) {
+                        menu.printAllAudits(auditoriums);
                     }
                     nowScreen = Screen.Menu;
                     menu.skip();
                     break; 
                 case 9:
+                    Environment.Exit(0);
                     break; 
             }
         }
