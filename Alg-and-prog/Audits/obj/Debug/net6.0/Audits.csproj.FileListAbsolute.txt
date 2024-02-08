@@ -1,0 +1,14 @@
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\bin\Debug\net6.0\Audits.exe
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\bin\Debug\net6.0\Audits.deps.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\bin\Debug\net6.0\Audits.runtimeconfig.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\bin\Debug\net6.0\Audits.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\bin\Debug\net6.0\Audits.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.GeneratedMSBuildEditorConfig.editorconfig
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.AssemblyInfoInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.AssemblyInfo.cs
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.csproj.CoreCompileInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\refint\Audits.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.genruntimeconfig.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\ref\Audits.dll

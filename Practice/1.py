@@ -1,40 +1,88 @@
-def prog(nums):
-    n_start_c = nums[0]
-    k_start_a = nums[1]
-    n_end_d = nums[2]
-    k_end_b = nums[3]
-    n_start_e = nums[4]
-    for i in range(len(n_start_e)):
-        for j in range(k_start_a[0]):
-            if n_start_e[i] > k_start_a[j + 1]:
-                n_start_e[i] -= 1
-        if i != len(n_start_e) - 1:
-            n_start_e[i] *= n_start_c[i + 1]
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices  # Количество вершин графа
+        self.graph = []  # Список ребер графа
 
-    t = sum(n_start_e)
-    c = []
-    m = n_end_d[0] - 1
-    del n_end_d[0]
-    n2 = sorted(n_end_d)
-    for i in range(m):
-        c.insert(0, t % n2[i])
-        t = t // n2[i]
-    c.insert(0, t)
-    for i in range(len(k_end_b) - 1):
-        for j in range(len(c)):
-            if c[j] > k_end_b[i + 1]:
-                c[j] += 1
-    return c
+    def add_edge(self, u, v, w):
+        # Добавляем ребро в граф
+        self.graph.append([u, v, w])
+
+    def find(self, parent, i):
+        # Находим корневую вершину для вершины i
+        if parent[i] == i:
+            return i
+        return self.find(parent, parent[i])
+
+    def union(self, parent, rank, x, y):
+        # Объединяем два подмножества по рангу
+        x_root = self.find(parent, x)
+        y_root = self.find(parent, y)
+
+        if rank[x_root] < rank[y_root]:
+            parent[x_root] = y_root
+        elif rank[x_root] > rank[y_root]:
+            parent[y_root] = x_root
+        else:
+            parent[y_root] = x_root
+            rank[x_root] += 1
+
+    def kraskal_mst(self):
+        result = []  # Инициализация списка для хранения MST
+        i = 0
+        e = 0
+
+        # Сортируем ребра по весу
+        self.graph = sorted(self.graph, key=lambda item: item[2])
+
+        parent = []  # Массив для хранения родительских вершин
+        rank = []  # Массив для хранения рангов вершин
+
+        # Инициализируем родительские вершины и ранги
+        for node in range(self.V):
+            parent.append(node)
+            rank.append(0)
+
+        # Пока не добавлено (V-1) ребро
+        while e < self.V - 1:
+            u, v, w = self.graph[i]  # Получаем вершины и вес ребра
+            i = i + 1
+
+            # Находим корневые вершины для текущих вершин
+            x = self.find(parent, u)
+            y = self.find(parent, v)
+
+            # Если ребро не создает цикл, добавляем его в MST
+            if x != y:
+                e = e + 1
+                result.append([u, v, w])
+                self.union(parent, rank, x, y)
+
+        # Выводим ребра в MST и их стоимость
+        minimum_cost = 0
+        print("Edges in the constructed MST:")
+        for u, v, weight in result:
+            minimum_cost += weight
+            print(f"{u} -- {v} == {weight}")
+        print(f"Minimum Spanning Tree Cost: {minimum_cost}")
 
 
-for i in range(1, 15):
-    with open(f"Обмен денег\input{i}.txt", encoding="utf8") as file:
-        data = file.readlines()
-        data = list(map(lambda x: list(map(int, x.rstrip('\n').split())), data))
-    with open(f"Обмен денег\output{i}.txt", encoding="utf8") as file:
-        out = list(map(int, file.readline().split()))
-        print(i)
-        res = prog(data)
-        print(out, res)
-        print(res == out)
-        print()
+# Пример использования
+g = Graph(9)
+g.add_edge(0, 1, 15)
+g.add_edge(0, 4, 14)
+g.add_edge(0, 3, 23)
+g.add_edge(1, 2, 19)
+g.add_edge(1, 3, 16)
+g.add_edge(1, 4, 15)
+g.add_edge(2, 4, 14)
+g.add_edge(2, 5, 26)
+g.add_edge(3, 4, 25)
+g.add_edge(3, 6, 23)
+g.add_edge(3, 7, 20)
+g.add_edge(4, 5, 24)
+g.add_edge(4, 7, 27)
+g.add_edge(4, 8, 18)
+g.add_edge(6, 7, 14)
+g.add_edge(7, 8, 18)
+
+g.kraskal_mst()
