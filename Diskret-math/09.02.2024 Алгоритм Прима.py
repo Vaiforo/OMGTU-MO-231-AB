@@ -23,8 +23,8 @@ was_checked.add(grafs[0][1])
 was_checked.add(grafs[0][2])
 out_grafs += [grafs[0]]
 
-maxe = max(grafs, key=lambda x: x[1:])
-while len(was_checked) != max(maxe[1:]):
+maxe = max(max(grafs, key=lambda x: x[1:])[1:])
+while len(was_checked) != maxe:
     for graf in grafs[1:]:
         if (graf[1] not in was_checked and graf[2] in was_checked) or \
                 (graf[1] in was_checked and graf[2] not in was_checked):
