@@ -31,17 +31,17 @@ public class Menu {
         Console.WriteLine("--Добавление новой аудитории--");
 
         Console.Write("Введите номер аудитории (этаж+номер): ");
-        string err = newAudit.setNumber(int.Parse(Console.ReadLine()));
+        string err = newAudit.setNumber(Console.ReadLine());
         while (err != "") {
             Console.Write($"{err}\n\nВведите номер аудитории (этаж+номер): ");
-            err = newAudit.setNumber(int.Parse(Console.ReadLine()));
+            err = newAudit.setNumber(Console.ReadLine());
         }
 
         Console.Write("Введите кол-во посадочных мест: ");
-        err = newAudit.setSitCount(int.Parse(Console.ReadLine()));
+        err = newAudit.setSitCount(Console.ReadLine());
         while (err != "") {
             Console.Write($"{err}\n\nВведите кол-во посадочных мест: ");
-            err = newAudit.setSitCount(int.Parse(Console.ReadLine()));
+            err = newAudit.setSitCount(Console.ReadLine());
         }
 
         Console.WriteLine("Имеется ли проектор:");
@@ -69,9 +69,17 @@ public class Menu {
         Console.WriteLine("--Изменение данных об аудитории--");
 
         Console.Write("Введите номер аудитории: ");
-        int number = int.Parse(Console.ReadLine());
+        string number = Console.ReadLine();
+        bool isNum = int.TryParse(number, out int num);
+        while (isNum) {
+            Console.WriteLine("Неверный ввод!");
+            Console.Write("Введите номер аудитории: ");
+            number = Console.ReadLine();
+            isNum = int.TryParse(number, out num);
+        }
 
-        var findedAudit = auditoriums.Find(elem => elem.getNumber() == number);
+
+        var findedAudit = auditoriums.Find(elem => elem.getNumber() == num);
         while (findedAudit == null) {
             Console.WriteLine("Аудитория с тким номером на найдена!");
             Console.WriteLine("Попробовать снова?");
@@ -84,18 +92,25 @@ public class Menu {
             if (Choose(ref top, ref y, ref down) == 1) return;
 
             Console.Write("Введите номер аудитории: ");
-            number = int.Parse(Console.ReadLine());
+            number = Console.ReadLine();
+            isNum = int.TryParse(number, out num);
+            while (isNum) {
+                Console.WriteLine("Неверный ввод!");
+                Console.Write("Введите номер аудитории: ");
+                number = Console.ReadLine();
+                isNum = int.TryParse(number, out num);
+            }
 
-            findedAudit = auditoriums.Find(elem => elem.getNumber() == number);
+            findedAudit = auditoriums.Find(elem => elem.getNumber() == num);
         }
 
         int index = auditoriums.IndexOf(findedAudit);
 
         Console.Write($"Введите новое кол-во посадочных мест - текущее <{findedAudit.getSitCount()}>: ");
-        var err = auditoriums[index].setSitCount(int.Parse(Console.ReadLine()));
+        var err = auditoriums[index].setSitCount(Console.ReadLine());
         while (err != "") {
             Console.Write($"{err}\n\nВведите новое кол-во посадочных мест - текущее <{findedAudit.getSitCount()}>: ");
-            err = auditoriums[index].setSitCount(int.Parse(Console.ReadLine()));
+            err = auditoriums[index].setSitCount(Console.ReadLine());
         }
 
         Console.WriteLine($"Имеется ли проектор - текущее <{(findedAudit.getProecktor() ? "да" : "нет")}>:");
@@ -119,12 +134,19 @@ public class Menu {
         Console.WriteLine("--Поиск по кол-ву посадочных мест--");
 
         Console.Write("Введите кол-во посадочных мест: ");
-        int sitCount = int.Parse(Console.ReadLine());
+        string sitCount = Console.ReadLine();
+        bool isNum = int.TryParse(sitCount, out int num);
+        while (isNum) {
+            Console.WriteLine("Неверный ввод!");
+            Console.Write("Введите кол-во посадочных мест: ");
+            sitCount = Console.ReadLine();
+            isNum = int.TryParse(sitCount, out num);
+        }
 
         bool haveAudits = false;
         Console.WriteLine("\nПодходящие аудитории:");
         foreach (Auditorium auditorium in auditoriums) {
-            if (auditorium.getSitCount() >= sitCount) {
+            if (auditorium.getSitCount() >= num) {
                 haveAudits = true;
                 Console.WriteLine(auditorium.getNumber());
             }
@@ -154,12 +176,19 @@ public class Menu {
         Console.WriteLine("--Поиск по кол-ву компьютеров--");
 
         Console.Write("Введите кол-во компьютеров: ");
-        int sitCount = int.Parse(Console.ReadLine());
+        string sitCount = Console.ReadLine();
+        bool isNum = int.TryParse(sitCount, out int num);
+        while (isNum) {
+            Console.WriteLine("Неверный ввод!");
+            Console.Write("Введите кол-во компьютеров: ");
+            sitCount = Console.ReadLine();
+            isNum = int.TryParse(sitCount, out num);
+        }
 
         bool haveAudits = false;
         Console.WriteLine("\nПодходящие аудитории:");
         foreach (Auditorium auditorium in auditoriums) {
-            if (auditorium.getSitCount() >= sitCount && auditorium.getHavePc()) {
+            if (auditorium.getSitCount() >= num && auditorium.getHavePc()) {
                 haveAudits = true;
                 Console.WriteLine(auditorium.getNumber());
             }
@@ -173,12 +202,19 @@ public class Menu {
         Console.WriteLine("--Поиск по этажу--");
         
         Console.Write("Введите этаж: ");
-        int stage = int.Parse(Console.ReadLine());
+        string stage = Console.ReadLine();
+        bool isNum = int.TryParse(stage, out int num);
+        while (isNum) {
+            Console.WriteLine("Неверный ввод!");
+            Console.Write("Введите этаж: ");
+            stage = Console.ReadLine();
+            isNum = int.TryParse(stage, out num);
+        }
 
         bool haveAudits = false;
         Console.WriteLine("\nПодходящие аудитории:");
         foreach (Auditorium auditorium in auditoriums) {
-            if (int.Parse(auditorium.getNumber().ToString()[0] + "") == stage) {
+            if (int.Parse(auditorium.getNumber().ToString()[0] + "") == num) {
                 haveAudits = true;
                 Console.WriteLine(auditorium.getNumber());
             }

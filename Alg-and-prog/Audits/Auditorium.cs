@@ -9,18 +9,20 @@ public class Auditorium {
         Console.WriteLine($"Кол-во посадочных мест: {SitCount}; Проектор: {(Proecktor ? "да" : "нет")}; Компьютеры: {(HavePc ? "да" : "нет")}");
     }
 
-    public string setNumber(int number) {
-        if (number >= 100 || number <= 10) return "Неверный номер аудитории!";
+    public string setNumber(string number) {
+        bool isNum = int.TryParse(number, out int num);
+        if (num >= 100 || num <= 10 || !isNum) return "Неверный номер аудитории!";
         else {
-            Number = number;
+            Number = num;
             return "";
         }
     }
 
-    public string setSitCount(int sitCount) {
-        if (sitCount <= 0) return "Неверное кол-во посадочных мест!";
+    public string setSitCount(string sitCount) {
+        bool isNum = int.TryParse(sitCount, out int num);
+        if (num <= 0 || !isNum) return "Неверное кол-во посадочных мест!";
         else {
-            SitCount = sitCount;
+            SitCount = num;
             return "";
         }
     }
