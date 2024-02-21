@@ -1,23 +1,26 @@
-def print_all(tree, nach):
-    out = []
+import sys
+
+sys.setrecursionlimit(10000)
+
+
+def print_all(tree, nach) -> [...]:
+    out: list = []
     if nach in tree:
         for person in tree[nach]:
-            out += [person]
-            out += print_all(tree, person)
-        return out
-    else:
-        return out
+            out += [person] + print_all(tree, person)
+    return out
 
 
-def prog(file_in):
-    last_nach = ""
-    tree = {}
-    persons = {}
-    ok = False
+def prog(file_in, answer, k) -> None:
+    last_nach: str = ""
+    tree: dict = {}
+    persons: dict = {}
+    ok: bool = False
     for line in file_in.readlines():
-        line = line.rstrip("\n")
+        line: str = line.rstrip("\n")
         if ok:
-            nach = line
+            nach: str = line
+            break
         if line == "END":
             ok = True
             continue
@@ -30,23 +33,29 @@ def prog(file_in):
             else:
                 tree[last_nach] += [person]
             last_nach = ""
-        persons[line[:4]] = "Unknown Name" \
-            if len(line.split()) == 1 else line[5:]
+        if line[:4] not in persons or persons[line[:4]] == "Unknown Name":
+            persons[line[:4]] = "Unknown Name" \
+                if len(line.split()) == 1 else line[5:]
     if nach not in persons:
         for person in persons:
             if nach == persons[person]:
                 nach = person
-    print(nach)
     out = sorted(print_all(tree, nach))
-    print(persons)
-    print(tree)
-    print(out)
+
+    # Почти чисто вывод
+    if len(out) > 0:
+        for i, elem in enumerate(out):
+            out[i] = f"{elem} {persons[elem]}\n"
+        out[-1] = out[-1].rstrip("\n")
+    else:
+        out = ["NO"]
+    print(
+        f"TEST {k} Запрос: {nach} {persons[nach]}\nОтвет  программы: {out}\nПравильный ответ: {answer}\nСовпадение: {out == answer}\n")
 
 
-for i in range(4, 5):
+for i in range(1, 16):
     name = "0" + str(i) if len(str(i)) == 1 else str(i)
-    with open(f"Компания ХХХ\input_s1_{name}.txt", encoding="utf8") as file:
-        f_in = file
+    with open(f"Компания ХХХ\input_s1_{name}.txt", encoding="utf8") as f_in:
         with open(f"Компания ХХХ\output_s1_{name}.txt", encoding="utf8") as file:
-            # input_nach = file.readline()
-            print(prog(f_in))
+            answer = file.readlines()
+            prog(f_in, answer, i)
