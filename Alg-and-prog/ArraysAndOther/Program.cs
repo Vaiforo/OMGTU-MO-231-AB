@@ -266,7 +266,8 @@ public class Program {
                                 foreach (var elem in arrayList) Console.Write($"{elem} ");
                                 Console.WriteLine("\n");
 
-                                int index, newElem;
+                                int index;
+                                string newElemList;
                                 while (true) {
                                     Console.Write($"Введие индекс элемента для изменения <int>: ");
                                     if (int.TryParse(Console.ReadLine(), out index))
@@ -274,7 +275,7 @@ public class Program {
                                 }
 
                                 Console.Write($"Введие новый элемент: ");
-                                var newElemList = Console.ReadLine();
+                                newElemList = Console.ReadLine();
                                 arrayList[index] = newElemList;
 
                                 Console.WriteLine("\nИ вот что сейчас: ");
@@ -353,64 +354,110 @@ public class Program {
                                 foreach (var elem in arrayList) Console.Write($"{elem} ");
                                 Console.WriteLine("\n");
 
-                                Console.Write($"Введие искомый элемент: ");
-                                findElem = Console.ReadLine();
+                                while (true) {
+                                    Console.Write($"Введие индекс элемента для добавления <int>: ");
+                                    if (int.TryParse(Console.ReadLine(), out index)) break;
+                                }
+
+                                Console.Write($"Введие новый элемент: ");
+                                newElemList = Console.ReadLine();
                                 
-                                Console.WriteLine($"\nИндекс искомого элемента: {arrayList.IndexOf(findElem)}");
+                                arrayList.Insert(index, newElemList);
+
+                                Console.WriteLine("\nИтог: ");
+                                foreach (var elem in arrayList) Console.Write($"{elem} ");
+                                Console.WriteLine("\n");
+
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 7:
+                                Console.WriteLine("--Reverse--\n");
+
+                                Console.WriteLine("Что в ArrayList сейчас: ");
+                                foreach (var elem in arrayList) Console.Write($"{elem} ");
+                                Console.WriteLine("\n");
+
+                                arrayList.Reverse();
+
+                                Console.WriteLine("Перевёрнутый ArrayList: ");
+                                foreach (var elem in arrayList) Console.Write($"{elem} ");
+                                Console.WriteLine("\n");
 
                                 Skip();
                                 justDoIt = 0;
                                 break;
                             case 8:
-                                Console.WriteLine("--Reverse--\n");
+                                Console.WriteLine("--Sort--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
+                                Console.WriteLine("Что в ArrayList сейчас: ");
+                                foreach (var elem in arrayList) Console.Write($"{elem} ");
                                 Console.WriteLine("\n");
 
-                                Array.Reverse(array);
+                                arrayList.Sort();
 
-                                Console.WriteLine("Перевёрнутый Array: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
+                                Console.WriteLine("Сортированный ArrayList: ");
+                                foreach (var elem in arrayList) Console.Write($"{elem} ");
                                 Console.WriteLine("\n");
 
                                 Skip();
                                 justDoIt = 0;
                                 break;
                             case 9:
-                                Console.WriteLine("--Resize--\n");
-
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                int newSize;
-                                while (true) {
-                                    Console.Write($"Введие новую длину <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out newSize))
-                                    if (newSize > 0) break;
-                                }
-                                Array.Resize(ref array, newSize);
-
-                                Console.WriteLine("Array после с измененным размером: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                Skip();
+                                typeOf = 0;
                                 justDoIt = 0;
                                 break;
-                            case 10:
-                                Console.WriteLine("--Sort--\n");
+                        }
+                    }
+                    break;
+                case 3:
+                    while (true) {     
+                        Console.Clear();
+                        if (typeOf == 0) break;
+                        switch (justDoIt) {
+                            case 0:
+                                Console.WriteLine("--SortedList--");
 
-                                Console.WriteLine("Что в Array сейчас: ");
+                                top = Console.CursorTop;
+                                y = top;
+
+                                Console.WriteLine("* EditElement");
+                                Console.WriteLine("* Count");
+                                Console.WriteLine("* BinarySearch");
+                                Console.WriteLine("* Copy");
+                                Console.WriteLine("* Find");
+                                Console.WriteLine("* FindLast");
+                                Console.WriteLine("* IndexOf");
+                                Console.WriteLine("* Reverse");
+                                Console.WriteLine("* Resize");
+                                Console.WriteLine("* Sort");
+                                Console.WriteLine("* Назад");
+
+                                down = Console.CursorTop;
+                                justDoIt = Choose(ref top, ref y, ref down) + 1;
+                                break;
+                            case 1:
+                                Console.WriteLine("--EditElement--\n");
+
+                                Console.WriteLine("Что в SortedList сейчас: ");
+                                foreach (DictionaryEntry  elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+
+                                int index, newElem;
+                                while (true) {
+                                    Console.Write($"\nВведие индекс элемента для изменения <int>: ");
+                                    if (int.TryParse(Console.ReadLine(), out index))
+                                    if (index < array.Length) break;
+                                }
+
+                                while (true) {
+                                    Console.Write($"Введие новый элемент <int>: ");
+                                    if (int.TryParse(Console.ReadLine(), out newElem)) break;
+                                }
+                                array[index] = newElem;
+
+                                Console.WriteLine("\nИ вот что сейчас: ");
                                 foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                Array.Sort(array);
-
-                                Console.WriteLine("Сортированный Array: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                                Console.WriteLine();
 
                                 Skip();
                                 justDoIt = 0;
