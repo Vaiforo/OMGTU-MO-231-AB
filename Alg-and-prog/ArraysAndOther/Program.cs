@@ -421,43 +421,93 @@ public class Program {
                                 top = Console.CursorTop;
                                 y = top;
 
-                                Console.WriteLine("* EditElement");
-                                Console.WriteLine("* Count");
-                                Console.WriteLine("* BinarySearch");
-                                Console.WriteLine("* Copy");
-                                Console.WriteLine("* Find");
-                                Console.WriteLine("* FindLast");
-                                Console.WriteLine("* IndexOf");
-                                Console.WriteLine("* Reverse");
-                                Console.WriteLine("* Resize");
-                                Console.WriteLine("* Sort");
+                                Console.WriteLine("* Add");
+                                Console.WriteLine("* IndexOf by key");
+                                Console.WriteLine("* IndexOf by value");
+                                Console.WriteLine("* Key by index");
+                                Console.WriteLine("* Value by index");
                                 Console.WriteLine("* Назад");
 
                                 down = Console.CursorTop;
                                 justDoIt = Choose(ref top, ref y, ref down) + 1;
                                 break;
                             case 1:
-                                Console.WriteLine("--EditElement--\n");
+                                Console.WriteLine("--Add--\n");
 
                                 Console.WriteLine("Что в SortedList сейчас: ");
-                                foreach (DictionaryEntry  elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
 
-                                int index, newElem;
-                                while (true) {
-                                    Console.Write($"\nВведие индекс элемента для изменения <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < array.Length) break;
-                                }
+                                Console.Write($"\nВведие ключ элемента для добавления: ");
+                                string key = Console.ReadLine();
 
-                                while (true) {
-                                    Console.Write($"Введие новый элемент <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out newElem)) break;
-                                }
-                                array[index] = newElem;
+                                Console.Write($"\nВведие новый элемент: ");
+                                string newElem = Console.ReadLine();
+                                arraySorted[key] = newElem;
 
                                 Console.WriteLine("\nИ вот что сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine();
+                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 2:
+                                Console.WriteLine("--IndexOf by key--\n");
+
+                                Console.WriteLine("Что в SortedList сейчас: ");
+                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+
+                                Console.Write($"\nВведие ключ для поиска: ");
+                                key = Console.ReadLine();
+
+                                Console.WriteLine(arraySorted.IndexOfKey(key));
+
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 3:
+                                Console.WriteLine("--IndexOf by value--\n");
+
+                                Console.WriteLine("Что в SortedList сейчас: ");
+                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+
+                                Console.Write($"\nВведие значение для поиска: ");
+                                string value = Console.ReadLine();
+
+                                Console.WriteLine(arraySorted.IndexOfValue(value));
+
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 4:
+                                Console.WriteLine("--Key by index--\n");
+
+                                Console.WriteLine("Что в SortedList сейчас: ");
+                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+
+                                int index;
+                                while (true) {
+                                    Console.Write($"\nВведие индекс <int>: ");
+                                    if (int.TryParse(Console.ReadLine(), out index))
+                                    if (index < arrayList.Count) break;
+                                }
+                                IList keys = arraySorted.GetKeyList();
+                                Console.WriteLine(keys[index]);
+
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 5:
+                                Console.WriteLine("--Value by index--\n");
+
+                                Console.WriteLine("Что в SortedList сейчас: ");
+                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+
+                                while (true) {
+                                    Console.Write($"\nВведие индекс <int>: ");
+                                    if (int.TryParse(Console.ReadLine(), out index))
+                                    if (index < arrayList.Count) break;
+                                }
+                                Console.WriteLine(arraySorted.GetByIndex(index));
 
                                 Skip();
                                 justDoIt = 0;
