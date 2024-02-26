@@ -320,12 +320,12 @@ public class Program {
                                 Console.WriteLine("--Copy--\n");
 
                                 var arrayListCopy = new string[arrayList.Count - 1];
-                                arrayList.CopyTo(2, arrayListCopy, 1, 3);
+                                arrayList.CopyTo(1, arrayListCopy, 1, 3);
 
                                 Console.WriteLine("Что в ArrayList сейчас: ");
                                 foreach (var elem in arrayList) Console.Write($"{elem} ");
                                 Console.WriteLine("\n");
-                                Console.WriteLine("И вот что в скопированном: ");
+                                Console.WriteLine("И вот что в скопированном (3 элемента, начиная с 1 индекса из старого списка, вставлены с 1 индекса во второй): ");
                                 foreach (var elem in arrayListCopy) Console.Write($"{elem} ");
                                 Console.WriteLine("\n");
 
@@ -488,7 +488,7 @@ public class Program {
                                 while (true) {
                                     Console.Write($"\nВведие индекс <int>: ");
                                     if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < arrayList.Count) break;
+                                    if (index < arraySorted.Count) break;
                                 }
                                 IList keys = arraySorted.GetKeyList();
                                 Console.WriteLine(keys[index]);
@@ -505,14 +505,14 @@ public class Program {
                                 while (true) {
                                     Console.Write($"\nВведие индекс <int>: ");
                                     if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < arrayList.Count) break;
+                                    if (index < arraySorted.Count) break;
                                 }
                                 Console.WriteLine(arraySorted.GetByIndex(index));
 
                                 Skip();
                                 justDoIt = 0;
                                 break;
-                            case 11:
+                            case 6:
                                 typeOf = 0;
                                 justDoIt = 0;
                                 break;
