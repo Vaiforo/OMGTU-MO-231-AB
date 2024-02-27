@@ -7,7 +7,8 @@ public class Program {
         int justDoIt = 0;
         int top, y, down;
 
-        int[] array = {1, 3, 5, 7, 9, 2, 4, 6, 8, 10};
+        Array array = Array.CreateInstance(typeof(int), 10);
+        for (int i = 1; i <= 10; i++) array.SetValue(i, i - 1);
         ArrayList arrayList = new ArrayList{"1", "2", "abc", "qwerty", "3"};
         SortedList arraySorted = new SortedList();
         arraySorted.Add("abc", "cba");
@@ -33,7 +34,11 @@ public class Program {
                         if (typeOf == 0) break;
                         switch (justDoIt) {
                             case 0:
-                                Console.WriteLine("--Array--");
+                                Console.WriteLine("--Array--\n");
+
+                                Console.WriteLine("Что в Array сейчас: ");
+                                foreach (var elem in array) Console.Write($"{elem} ");
+                                Console.WriteLine("\n");
 
                                 top = Console.CursorTop;
                                 y = top;
@@ -64,14 +69,14 @@ public class Program {
                                 while (true) {
                                     Console.Write($"Введие индекс элемента для изменения <int>: ");
                                     if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < array.Length) break;
+                                    if (index < array.GetLength(0) && index >= 0) break;
                                 }
 
                                 while (true) {
                                     Console.Write($"Введие новый элемент <int>: ");
                                     if (int.TryParse(Console.ReadLine(), out newElem)) break;
                                 }
-                                array[index] = newElem;
+                                array.SetValue(newElem, index);
 
                                 Console.WriteLine("\nИ вот что сейчас: ");
                                 foreach (var elem in array) Console.Write($"{elem} ");
@@ -80,157 +85,157 @@ public class Program {
                                 Skip();
                                 justDoIt = 0;
                                 break;
-                            case 2:
-                                Console.WriteLine("--Count--\n");
+                            // case 2:
+                            //     Console.WriteLine("--Count--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                Console.WriteLine($"Кол-во четных элементов: {array.Count(x => x % 2 == 0)}");
+                            //     Console.WriteLine($"Кол-во четных элементов: {array.Count(x => x % 2 == 0)}");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 3:
-                                Console.WriteLine("--BinarySearch--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 3:
+                            //     Console.WriteLine("--BinarySearch--\n");
 
-                                int[] forBinSearch = new int[array.Length];
-                                Array.Copy(array, forBinSearch, array.Length);
-                                Array.Sort(forBinSearch);
+                            //     int[] forBinSearch = new int[array.Length];
+                            //     Array.Copy(array, forBinSearch, array.Length);
+                            //     Array.Sort(forBinSearch);
 
-                                Console.WriteLine("Array для бинарного поиска: ");
-                                foreach (var elem in forBinSearch) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Array для бинарного поиска: ");
+                            //     foreach (var elem in forBinSearch) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                int findElem;
-                                while (true) {
-                                    Console.Write($"Введие искомый элемент <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out findElem)) break;
-                                }
+                            //     int findElem;
+                            //     while (true) {
+                            //         Console.Write($"Введие искомый элемент <int>: ");
+                            //         if (int.TryParse(Console.ReadLine(), out findElem)) break;
+                            //     }
 
-                                Console.WriteLine($"\nИндекс введённого элемента: {Array.BinarySearch(forBinSearch, findElem)}");
+                            //     Console.WriteLine($"\nИндекс введённого элемента: {Array.BinarySearch(forBinSearch, findElem)}");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 4:
-                                Console.WriteLine("--Copy--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 4:
+                            //     Console.WriteLine("--Copy--\n");
 
-                                int[] copyArray = new int[array.Length];
-                                Array.Copy(array, copyArray, array.Length);
+                            //     int[] copyArray = new int[array.Length];
+                            //     Array.Copy(array, copyArray, array.Length);
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-                                Console.WriteLine("И вот что в скопированном: ");
-                                foreach (var elem in copyArray) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
+                            //     Console.WriteLine("И вот что в скопированном: ");
+                            //     foreach (var elem in copyArray) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 5:
-                                Console.WriteLine("--Find--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 5:
+                            //     Console.WriteLine("--Find--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
                                 
-                                findElem = Array.Find(array, x => x % 2 == 0 && x % 3 == 0);
-                                Console.WriteLine($"Первый элемент который делится на 2 и на 3: {findElem}");
+                            //     findElem = Array.Find(array, x => x % 2 == 0 && x % 3 == 0);
+                            //     Console.WriteLine($"Первый элемент который делится на 2 и на 3: {findElem}");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 6:
-                                Console.WriteLine("--FindLast--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 6:
+                            //     Console.WriteLine("--FindLast--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
                                 
-                                findElem = Array.FindLast(array, x => x % 2 == 0 && x % 4 == 0);
-                                Console.WriteLine($"Последний элемент который делится на 2 и на 4: {findElem}");
+                            //     findElem = Array.FindLast(array, x => x % 2 == 0 && x % 4 == 0);
+                            //     Console.WriteLine($"Последний элемент который делится на 2 и на 4: {findElem}");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 7:
-                                Console.WriteLine("--IndexOf--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 7:
+                            //     Console.WriteLine("--IndexOf--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                while (true) {
-                                    Console.Write($"Введие искомый элемент <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out findElem)) break;
-                                }
+                            //     while (true) {
+                            //         Console.Write($"Введие искомый элемент <int>: ");
+                            //         if (int.TryParse(Console.ReadLine(), out findElem)) break;
+                            //     }
                                 
-                                Console.WriteLine($"\nИндекс искомого элемента: {Array.IndexOf(array, findElem)}");
+                            //     Console.WriteLine($"\nИндекс искомого элемента: {Array.IndexOf(array, findElem)}");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 8:
-                                Console.WriteLine("--Reverse--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 8:
+                            //     Console.WriteLine("--Reverse--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                Array.Reverse(array);
+                            //     Array.Reverse(array);
 
-                                Console.WriteLine("Перевёрнутый Array: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Перевёрнутый Array: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 9:
-                                Console.WriteLine("--Resize--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 9:
+                            //     Console.WriteLine("--Resize--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                int newSize;
-                                while (true) {
-                                    Console.Write($"Введие новую длину <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out newSize))
-                                    if (newSize > 0) break;
-                                }
-                                Array.Resize(ref array, newSize);
+                            //     int newSize;
+                            //     while (true) {
+                            //         Console.Write($"Введие новую длину <int>: ");
+                            //         if (int.TryParse(Console.ReadLine(), out newSize))
+                            //         if (newSize > 0) break;
+                            //     }
+                            //     Array.Resize(ref array, newSize);
 
-                                Console.WriteLine("Array после с измененным размером: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Array после с измененным размером: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 10:
-                                Console.WriteLine("--Sort--\n");
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 10:
+                            //     Console.WriteLine("--Sort--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Что в Array сейчас: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                Array.Sort(array);
+                            //     Array.Sort(array);
 
-                                Console.WriteLine("Сортированный Array: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                            //     Console.WriteLine("Сортированный Array: ");
+                            //     foreach (var elem in array) Console.Write($"{elem} ");
+                            //     Console.WriteLine("\n");
 
-                                Skip();
-                                justDoIt = 0;
-                                break;
-                            case 11:
-                                typeOf = 0;
-                                justDoIt = 0;
-                                break;
+                            //     Skip();
+                            //     justDoIt = 0;
+                            //     break;
+                            // case 11:
+                            //     typeOf = 0;
+                            //     justDoIt = 0;
+                            //     break;
                         }
                     }
                     break;
@@ -240,7 +245,11 @@ public class Program {
                         if (typeOf == 0) break;
                         switch (justDoIt) {
                             case 0:
-                                Console.WriteLine("--ArrayList--");
+                                Console.WriteLine("--ArrayList--\n");
+
+                                Console.WriteLine("Что в ArrayList сейчас: ");
+                                foreach (var elem in arrayList) Console.Write($"{elem} ");
+                                Console.WriteLine("\n");
 
                                 top = Console.CursorTop;
                                 y = top;
@@ -262,25 +271,7 @@ public class Program {
                             case 1:
                                 Console.WriteLine("--EditElement--\n");
 
-                                Console.WriteLine("Что в ArrayList сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                int index;
-                                string newElemList;
-                                while (true) {
-                                    Console.Write($"Введие индекс элемента для изменения <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < arrayList.Count) break;
-                                }
-
-                                Console.Write($"Введие новый элемент: ");
-                                newElemList = Console.ReadLine();
-                                arrayList[index] = newElemList;
-
-                                Console.WriteLine("\nИ вот что сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine();
+                                PlayArrayList.EditElement(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
@@ -288,11 +279,7 @@ public class Program {
                             case 2:
                                 Console.WriteLine("--Count--\n");
 
-                                Console.WriteLine("Что в ArrayList сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                Console.WriteLine($"Кол-во элементов в ArrayList: {arrayList.Count}");
+                                PlayArrayList.Count(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
@@ -300,18 +287,7 @@ public class Program {
                             case 3:
                                 Console.WriteLine("--BinarySearch--\n");
 
-                                ArrayList forBinSearchList = new ArrayList();
-                                forBinSearchList = (ArrayList)arrayList.Clone();
-                                forBinSearchList.Sort();
-
-                                Console.WriteLine("ArrayList для бинарного поиска: ");
-                                foreach (var elem in forBinSearchList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                Console.Write($"Введие искомый элемент: ");
-                                var findElem = Console.ReadLine();
-
-                                Console.WriteLine($"\nИндекс введённого элемента: {forBinSearchList.BinarySearch(findElem)}");
+                                PlayArrayList.BinarySearch(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
@@ -319,15 +295,7 @@ public class Program {
                             case 4:
                                 Console.WriteLine("--Copy--\n");
 
-                                var arrayListCopy = new string[arrayList.Count - 1];
-                                arrayList.CopyTo(1, arrayListCopy, 1, 3);
-
-                                Console.WriteLine("Что в ArrayList сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-                                Console.WriteLine("И вот что в скопированном (3 элемента, начиная с 1 индекса из старого списка, вставлены с 1 индекса во второй): ");
-                                foreach (var elem in arrayListCopy) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                                PlayArrayList.Copy(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
@@ -335,14 +303,7 @@ public class Program {
                             case 5:
                                 Console.WriteLine("--IndexOf--\n");
 
-                                Console.WriteLine("Что в ArrayList сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                Console.Write($"Введие искомый элемент: ");
-                                findElem = Console.ReadLine();
-                                
-                                Console.WriteLine($"\nИндекс искомого элемента: {arrayList.IndexOf(findElem)}");
+                                PlayArrayList.IndexOf(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
@@ -350,23 +311,7 @@ public class Program {
                             case 6:
                                 Console.WriteLine("--Insert--\n");
 
-                                Console.WriteLine("Что в ArrayList сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                while (true) {
-                                    Console.Write($"Введие индекс элемента для добавления <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out index)) break;
-                                }
-
-                                Console.Write($"Введие новый элемент: ");
-                                newElemList = Console.ReadLine();
-                                
-                                arrayList.Insert(index, newElemList);
-
-                                Console.WriteLine("\nИтог: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                                PlayArrayList.Insert(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
@@ -374,15 +319,7 @@ public class Program {
                             case 7:
                                 Console.WriteLine("--Reverse--\n");
 
-                                Console.WriteLine("Что в ArrayList сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                arrayList.Reverse();
-
-                                Console.WriteLine("Перевёрнутый ArrayList: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                                PlayArrayList.Reverse(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
@@ -390,20 +327,20 @@ public class Program {
                             case 8:
                                 Console.WriteLine("--Sort--\n");
 
-                                Console.WriteLine("Что в ArrayList сейчас: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                arrayList.Sort();
-
-                                Console.WriteLine("Сортированный ArrayList: ");
-                                foreach (var elem in arrayList) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
+                                PlayArrayList.Sort(arrayList);
 
                                 Skip();
                                 justDoIt = 0;
                                 break;
                             case 9:
+                                Console.WriteLine("--Add--\n");
+
+                                PlayArrayList.Add(arrayList);
+
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 10:
                                 typeOf = 0;
                                 justDoIt = 0;
                                 break;
@@ -416,8 +353,10 @@ public class Program {
                         if (typeOf == 0) break;
                         switch (justDoIt) {
                             case 0:
-                                Console.WriteLine("--SortedList--");
+                                Console.WriteLine("--SortedList--\n");
 
+                                PlaySortedList.PrintSortedList(arraySorted, "Что в SortedList сейчас: ");
+                                
                                 top = Console.CursorTop;
                                 y = top;
 
@@ -434,18 +373,7 @@ public class Program {
                             case 1:
                                 Console.WriteLine("--Add--\n");
 
-                                Console.WriteLine("Что в SortedList сейчас: ");
-                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
-
-                                Console.Write($"\nВведие ключ элемента для добавления: ");
-                                string key = Console.ReadLine();
-
-                                Console.Write($"\nВведие новый элемент: ");
-                                string newElem = Console.ReadLine();
-                                arraySorted[key] = newElem;
-
-                                Console.WriteLine("\nИ вот что сейчас: ");
-                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
+                                PlaySortedList.Add(arraySorted);
 
                                 Skip();
                                 justDoIt = 0;
@@ -453,13 +381,7 @@ public class Program {
                             case 2:
                                 Console.WriteLine("--IndexOf by key--\n");
 
-                                Console.WriteLine("Что в SortedList сейчас: ");
-                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
-
-                                Console.Write($"\nВведие ключ для поиска: ");
-                                key = Console.ReadLine();
-
-                                Console.WriteLine(arraySorted.IndexOfKey(key));
+                                PlaySortedList.IndexOfByKey(arraySorted);
 
                                 Skip();
                                 justDoIt = 0;
@@ -467,13 +389,7 @@ public class Program {
                             case 3:
                                 Console.WriteLine("--IndexOf by value--\n");
 
-                                Console.WriteLine("Что в SortedList сейчас: ");
-                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
-
-                                Console.Write($"\nВведие значение для поиска: ");
-                                string value = Console.ReadLine();
-
-                                Console.WriteLine(arraySorted.IndexOfValue(value));
+                                PlaySortedList.IndexOfByValue(arraySorted);
 
                                 Skip();
                                 justDoIt = 0;
@@ -481,17 +397,7 @@ public class Program {
                             case 4:
                                 Console.WriteLine("--Key by index--\n");
 
-                                Console.WriteLine("Что в SortedList сейчас: ");
-                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
-
-                                int index;
-                                while (true) {
-                                    Console.Write($"\nВведие индекс <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < arraySorted.Count) break;
-                                }
-                                IList keys = arraySorted.GetKeyList();
-                                Console.WriteLine(keys[index]);
+                                PlaySortedList.KeyByIndex(arraySorted);
 
                                 Skip();
                                 justDoIt = 0;
@@ -499,15 +405,7 @@ public class Program {
                             case 5:
                                 Console.WriteLine("--Value by index--\n");
 
-                                Console.WriteLine("Что в SortedList сейчас: ");
-                                foreach (DictionaryEntry elem in arraySorted) Console.WriteLine($"key: {elem.Key} value: {elem.Value}");
-
-                                while (true) {
-                                    Console.Write($"\nВведие индекс <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < arraySorted.Count) break;
-                                }
-                                Console.WriteLine(arraySorted.GetByIndex(index));
+                                PlaySortedList.ValueByIndex(arraySorted);
 
                                 Skip();
                                 justDoIt = 0;

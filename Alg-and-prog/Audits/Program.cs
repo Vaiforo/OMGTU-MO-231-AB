@@ -27,24 +27,7 @@ public class Audits {
 
             switch ((int)nowScreen) {
                 case 0:
-                    Console.WriteLine("Выберите действие (стрелка вверх/вниз, пробел):");
-
-                    int top = Console.CursorTop;
-                    int y = top;
-
-                    Console.WriteLine("+ Создание базы аудиторий");
-                    Console.WriteLine("+ Добавление в базу аудитории");
-                    Console.WriteLine("+ Изменение данных аудитории (по номеру аудитории)");
-                    Console.WriteLine("+ Аудитории с кол-вом мест больше заданного");
-                    Console.WriteLine("+ Аудитории с проектором");
-                    Console.WriteLine("+ Аудитории с пк и кол-вом мест больше заданного");
-                    Console.WriteLine("+ Аудитории на заданном этаже");
-                    Console.WriteLine("+ Показать все аудитории");
-                    Console.WriteLine("+ Выход");
-
-                    int down = Console.CursorTop;
-
-                    nowScreen = (Screen)menu.Choose(ref top, ref y, ref down) + 1;
+                    nowScreen = (Screen)menu.MainMenu();
                     break;
                 case 1:
                     auditoriums = menu.CreateBD();

@@ -17,6 +17,27 @@ public class Menu {
         }
     }
 
+    public int MainMenu() {
+        Console.WriteLine("Выберите действие (стрелка вверх/вниз, пробел):");
+
+        int top = Console.CursorTop;
+        int y = top;
+
+        Console.WriteLine("+ Создание базы аудиторий");
+        Console.WriteLine("+ Добавление в базу аудитории");
+        Console.WriteLine("+ Изменение данных аудитории (по номеру аудитории)");
+        Console.WriteLine("+ Аудитории с кол-вом мест больше заданного");
+        Console.WriteLine("+ Аудитории с проектором");
+        Console.WriteLine("+ Аудитории с пк и кол-вом мест больше заданного");
+        Console.WriteLine("+ Аудитории на заданном этаже");
+        Console.WriteLine("+ Показать все аудитории");
+        Console.WriteLine("+ Выход");
+
+        int down = Console.CursorTop;
+
+        return Choose(ref top, ref y, ref down) + 1;
+    }
+
     public List<Auditorium> CreateBD() {
         Console.WriteLine("База данных успешно создана!");
         return new List<Auditorium>();

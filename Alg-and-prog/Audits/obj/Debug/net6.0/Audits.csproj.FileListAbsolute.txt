@@ -26,3 +26,4 @@ C:\programming\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\refint\Audit
 C:\programming\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.pdb
 C:\programming\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.genruntimeconfig.cache
 C:\programming\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\ref\Audits.dll
+C:\programming\OMGTU-MO-231-AB\Alg-and-prog\Audits\obj\Debug\net6.0\Audits.sourcelink.json
