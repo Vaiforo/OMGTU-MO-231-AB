@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 
 
 public class Program {
@@ -7,7 +8,7 @@ public class Program {
         int justDoIt = 0;
         int top, y, down;
 
-        Array array = Array.CreateInstance(typeof(int), 10);
+        Array array = new int[10];
         for (int i = 1; i <= 10; i++) array.SetValue(i, i - 1);
         ArrayList arrayList = new ArrayList{"1", "2", "abc", "qwerty", "3"};
         SortedList arraySorted = new SortedList();
@@ -61,177 +62,82 @@ public class Program {
                             case 1:
                                 Console.WriteLine("--EditElement--\n");
 
-                                Console.WriteLine("Что в Array сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine("\n");
-
-                                int index, newElem;
-                                while (true) {
-                                    Console.Write($"Введие индекс элемента для изменения <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out index))
-                                    if (index < array.GetLength(0) && index >= 0) break;
-                                }
-
-                                while (true) {
-                                    Console.Write($"Введие новый элемент <int>: ");
-                                    if (int.TryParse(Console.ReadLine(), out newElem)) break;
-                                }
-                                array.SetValue(newElem, index);
-
-                                Console.WriteLine("\nИ вот что сейчас: ");
-                                foreach (var elem in array) Console.Write($"{elem} ");
-                                Console.WriteLine();
+                                PlayArray.EditElement(array);
 
                                 Skip();
                                 justDoIt = 0;
                                 break;
-                            // case 2:
-                            //     Console.WriteLine("--Count--\n");
+                            case 2:
+                                Console.WriteLine("--Count--\n");
 
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
+                                PlayArray.Count(array);
 
-                            //     Console.WriteLine($"Кол-во четных элементов: {array.Count(x => x % 2 == 0)}");
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 3:
+                                Console.WriteLine("--BinarySearch--\n");
 
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 3:
-                            //     Console.WriteLine("--BinarySearch--\n");
+                                PlayArray.BinarySearch(array);
 
-                            //     int[] forBinSearch = new int[array.Length];
-                            //     Array.Copy(array, forBinSearch, array.Length);
-                            //     Array.Sort(forBinSearch);
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 4:
+                                Console.WriteLine("--Copy--\n");
 
-                            //     Console.WriteLine("Array для бинарного поиска: ");
-                            //     foreach (var elem in forBinSearch) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
+                                PlayArray.Copy(array);
 
-                            //     int findElem;
-                            //     while (true) {
-                            //         Console.Write($"Введие искомый элемент <int>: ");
-                            //         if (int.TryParse(Console.ReadLine(), out findElem)) break;
-                            //     }
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 5:
+                                Console.WriteLine("--Find--\n");
 
-                            //     Console.WriteLine($"\nИндекс введённого элемента: {Array.BinarySearch(forBinSearch, findElem)}");
+                                PlayArray.Find(array);
 
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 4:
-                            //     Console.WriteLine("--Copy--\n");
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 6:
+                                Console.WriteLine("--FindLast--\n");
 
-                            //     int[] copyArray = new int[array.Length];
-                            //     Array.Copy(array, copyArray, array.Length);
+                                PlayArray.FindLast(array);
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 7:
+                                Console.WriteLine("--IndexOf--\n");
 
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-                            //     Console.WriteLine("И вот что в скопированном: ");
-                            //     foreach (var elem in copyArray) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
+                                PlayArray.IndexOf(array);
 
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 5:
-                            //     Console.WriteLine("--Find--\n");
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 8:
+                                Console.WriteLine("--Reverse--\n");
 
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-                                
-                            //     findElem = Array.Find(array, x => x % 2 == 0 && x % 3 == 0);
-                            //     Console.WriteLine($"Первый элемент который делится на 2 и на 3: {findElem}");
+                                PlayArray.Reverse(array);
 
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 6:
-                            //     Console.WriteLine("--FindLast--\n");
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 9:
+                                Console.WriteLine("--Resize--\n");
 
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-                                
-                            //     findElem = Array.FindLast(array, x => x % 2 == 0 && x % 4 == 0);
-                            //     Console.WriteLine($"Последний элемент который делится на 2 и на 4: {findElem}");
+                                PlayArray.Resize(array);
 
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 7:
-                            //     Console.WriteLine("--IndexOf--\n");
+                                Skip();
+                                justDoIt = 0;
+                                break;
+                            case 10:
+                                Console.WriteLine("--Sort--\n");
 
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
+                                PlayArray.Sort(array);
 
-                            //     while (true) {
-                            //         Console.Write($"Введие искомый элемент <int>: ");
-                            //         if (int.TryParse(Console.ReadLine(), out findElem)) break;
-                            //     }
-                                
-                            //     Console.WriteLine($"\nИндекс искомого элемента: {Array.IndexOf(array, findElem)}");
-
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 8:
-                            //     Console.WriteLine("--Reverse--\n");
-
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-
-                            //     Array.Reverse(array);
-
-                            //     Console.WriteLine("Перевёрнутый Array: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 9:
-                            //     Console.WriteLine("--Resize--\n");
-
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-
-                            //     int newSize;
-                            //     while (true) {
-                            //         Console.Write($"Введие новую длину <int>: ");
-                            //         if (int.TryParse(Console.ReadLine(), out newSize))
-                            //         if (newSize > 0) break;
-                            //     }
-                            //     Array.Resize(ref array, newSize);
-
-                            //     Console.WriteLine("Array после с измененным размером: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
-                            // case 10:
-                            //     Console.WriteLine("--Sort--\n");
-
-                            //     Console.WriteLine("Что в Array сейчас: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-
-                            //     Array.Sort(array);
-
-                            //     Console.WriteLine("Сортированный Array: ");
-                            //     foreach (var elem in array) Console.Write($"{elem} ");
-                            //     Console.WriteLine("\n");
-
-                            //     Skip();
-                            //     justDoIt = 0;
-                            //     break;
+                                Skip();
+                                justDoIt = 0;
+                                break;
                             // case 11:
                             //     typeOf = 0;
                             //     justDoIt = 0;
