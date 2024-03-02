@@ -19,6 +19,8 @@ public class Program {
         while (true) {
             switch (typeOf) {
                 case 0:
+                    Console.WriteLine("--Главное меню--\n");
+
                     top = Console.CursorTop;
                     y = top;
 
@@ -138,10 +140,10 @@ public class Program {
                                 Skip();
                                 justDoIt = 0;
                                 break;
-                            // case 11:
-                            //     typeOf = 0;
-                            //     justDoIt = 0;
-                            //     break;
+                            case 11:
+                                typeOf = 0;
+                                justDoIt = 0;
+                                break;
                         }
                     }
                     break;

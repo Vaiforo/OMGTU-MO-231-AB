@@ -6,6 +6,12 @@ public class PlayArray {
         foreach (int elem in array) Console.Write($"{elem} ");
         Console.WriteLine("\n");
     }
+    
+    static public void PrintArray(int[] array, string title) {
+        Console.WriteLine(title);
+        foreach (int elem in array) Console.Write($"{elem} ");
+        Console.WriteLine("\n");
+    }
 
     static public void EditElement(Array array) {
         PrintArray(array, "Что в Array сейчас: ");
@@ -14,7 +20,7 @@ public class PlayArray {
         while (true) {
             Console.Write($"Введие индекс элемента для изменения <int>: ");
             if (int.TryParse(Console.ReadLine(), out index))
-            if (index < array.GetLength(0) && index >= 0) break;
+            if (index < array.Length && index >= 0) break;
         }
 
         while (true) {
@@ -29,117 +35,91 @@ public class PlayArray {
     static public void Count(Array array) {
         PrintArray(array, "Что в Array сейчас: ");
         
-        // Console.WriteLine($"Кол-во четных элементов: {array.Count}");
+        int[] arrayInt = (int[])array;
+        
+        Console.WriteLine($"Кол-во четных элементов: {arrayInt.Count(x => x % 2 == 0)}");
     }
 
     static public void BinarySearch(Array array) {
-        // int[] forBinSearch = new int[array.Length];
-        // Array.Copy(array, forBinSearch, array.Length);
-        // Array.Sort(forBinSearch);
+        int[] forBinSearch = new int[array.Length];
+        Array.Copy(array, forBinSearch, array.Length);
+        Array.Sort(forBinSearch);
 
-        // Console.WriteLine("Array для бинарного поиска: ");
-        // foreach (var elem in forBinSearch) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
+        PrintArray(forBinSearch, "Array для бинарного поиска: ");
 
-        // int findElem;
-        // while (true) {
-        //     Console.Write($"Введие искомый элемент <int>: ");
-        //     if (int.TryParse(Console.ReadLine(), out findElem)) break;
-        // }
+        int findElem;
+        while (true) {
+            Console.Write($"Введие искомый элемент <int>: ");
+            if (int.TryParse(Console.ReadLine(), out findElem)) break;
+        }
 
-        // Console.WriteLine($"\nИндекс введённого элемента: {Array.BinarySearch(forBinSearch, findElem)}");
-        Console.WriteLine("pass");
+        Console.WriteLine($"\nИндекс введённого элемента: {Array.BinarySearch(forBinSearch, findElem)}");
     }
 
     static public void Copy(Array array) {
-        // int[] copyArray = new int[array.Length];
-        // Array.Copy(array, copyArray, array.Length);
+        int[] copyArray = new int[array.Length];
+        Array.Copy(array, copyArray, array.Length);
 
-        // Console.WriteLine("Что в Array сейчас: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
-        // Console.WriteLine("И вот что в скопированном: ");
-        // foreach (var elem in copyArray) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
-        Console.WriteLine("pass");
+        PrintArray(array, "Что в Array сейчас: ");
+        
+        PrintArray(copyArray, "И вот что в скопированном: ");
     }
 
     static public void Find(Array array) {
-        // Console.WriteLine("Что в Array сейчас: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
+        PrintArray(array, "Что в Array сейчас: ");
         
-        // findElem = Array.Find(array, x => x % 2 == 0 && x % 3 == 0);
-        // Console.WriteLine($"Первый элемент который делится на 2 и на 3: {findElem}");
-        Console.WriteLine("pass");
+        int findElem = Array.Find((int[])array, x => x % 2 == 0 && x % 3 == 0);
+        Console.WriteLine($"Первый элемент который делится на 2 и на 3: {findElem}");
     }
 
     static public void FindLast(Array array) {
-        // Console.WriteLine("Что в Array сейчас: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
+        PrintArray(array, "Что в Array сейчас: ");
         
-        // findElem = Array.FindLast(array, x => x % 2 == 0 && x % 4 == 0);
-        // Console.WriteLine($"Последний элемент который делится на 2 и на 4: {findElem}");
-        Console.WriteLine("pass");
+        int findElem = Array.FindLast((int[])array, x => x % 2 == 0 && x % 4 == 0);
+        Console.WriteLine($"Последний элемент который делится на 2 и на 4: {findElem}");
     }
 
     static public void IndexOf(Array array) {
-        // Console.WriteLine("Что в Array сейчас: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
+        PrintArray(array, "Что в Array сейчас: ");
 
-        // while (true) {
-        //     Console.Write($"Введие искомый элемент <int>: ");
-        //     if (int.TryParse(Console.ReadLine(), out findElem)) break;
-        // }
+        int findElem;
+        while (true) {
+            Console.Write($"Введие искомый элемент <int>: ");
+            if (int.TryParse(Console.ReadLine(), out findElem)) break;
+        }
         
-        // Console.WriteLine($"\nИндекс искомого элемента: {Array.IndexOf(array, findElem)}");
-        Console.WriteLine("pass");
+        Console.WriteLine($"\nИндекс искомого элемента: {Array.IndexOf(array, findElem)}");
     }
 
     static public void Reverse(Array array) {
-        // Console.WriteLine("Что в Array сейчас: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
+        PrintArray(array, "Что в Array сейчас: ");
 
-        // Array.Reverse(array);
+        Array.Reverse(array);
 
-        // Console.WriteLine("Перевёрнутый Array: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
-        Console.WriteLine("pass");
+        PrintArray(array, "Перевёрнутый Array: ");
     }
 
     static public void Resize(Array array) {
-        // Console.WriteLine("Что в Array сейчас: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
+        PrintArray(array, "Что в Array сейчас: ");
 
-        // int newSize;
-        // while (true) {
-        //     Console.Write($"Введие новую длину <int>: ");
-        //     if (int.TryParse(Console.ReadLine(), out newSize))
-        //     if (newSize > 0) break;
-        // }
-        // Array.Resize(ref array, newSize);
+        int newSize;
+        while (true) {
+            Console.Write($"Введие новую длину <int>: ");
+            if (int.TryParse(Console.ReadLine(), out newSize))
+            if (newSize > 0) break;
+        }
 
-        // Console.WriteLine("Array после с измененным размером: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
-        Console.WriteLine("pass");
+        var arrayInt = (int[])array;
+        Array.Resize(ref arrayInt, newSize);
+
+        PrintArray(arrayInt, "Array после с измененным размером: ");
     }
 
     static public void Sort(Array array) {
-        // Console.WriteLine("Что в Array сейчас: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
+        PrintArray(array, "Что в Array сейчас: ");
 
-        // Array.Sort(array);
+        Array.Sort(array);
 
-        // Console.WriteLine("Сортированный Array: ");
-        // foreach (var elem in array) Console.Write($"{elem} ");
-        // Console.WriteLine("\n");
-        Console.WriteLine("pass");
+        PrintArray(array, "Сортированный Array: ");
     }
 }
