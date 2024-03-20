@@ -20,7 +20,7 @@ class NoteBook {
 
         Console.WriteLine("Подсчёт с помощью Dictionary\n");
 
-        Dictionary<string, Dictionary<string, Dictionary<string, int>>> report1 = new();
+        Dictionary<string, Dictionary<string, Dictionary<string, int>>> report1;
         report1 = ReportWithDict.GetReport(queue1);
 
         Outputer.PrintDictionary(report1);
@@ -31,7 +31,7 @@ class NoteBook {
 
         Console.WriteLine("Подсчёт с помощью Hashtable\n");
 
-        Hashtable report2 = new();
+        Hashtable report2;
         report2 = ReportWithTable.GetReport(queue2);
 
         Outputer.PrintHashtable(report2);

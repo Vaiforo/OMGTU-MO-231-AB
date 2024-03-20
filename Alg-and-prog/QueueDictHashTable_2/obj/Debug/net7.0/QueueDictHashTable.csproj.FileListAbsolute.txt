@@ -1,0 +1,14 @@
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\bin\Debug\net7.0\QueueDictHashTable.exe
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\bin\Debug\net7.0\QueueDictHashTable.deps.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\bin\Debug\net7.0\QueueDictHashTable.runtimeconfig.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\bin\Debug\net7.0\QueueDictHashTable.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\bin\Debug\net7.0\QueueDictHashTable.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\QueueDictHashTable.GeneratedMSBuildEditorConfig.editorconfig
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\QueueDictHashTable.AssemblyInfoInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\QueueDictHashTable.AssemblyInfo.cs
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\QueueDictHashTable.csproj.CoreCompileInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\QueueDictHashTable.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\refint\QueueDictHashTable.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\QueueDictHashTable.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\QueueDictHashTable.genruntimeconfig.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\QueueDictHashTable_2\obj\Debug\net7.0\ref\QueueDictHashTable.dll
