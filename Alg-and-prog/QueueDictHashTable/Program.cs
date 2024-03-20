@@ -35,7 +35,5 @@ class NoteBook {
         report2 = ReportWithTable.GetReport(queue2);
 
         Outputer.PrintHashtable(report2);
-
-        Console.WriteLine("___________________________________________");
     }
 }

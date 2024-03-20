@@ -9,8 +9,8 @@ public class Outputer {
             Console.WriteLine($"Year: {yearReport.Key}");
             foreach (KeyValuePair<string, Dictionary<string, int>> monthReport in yearReport.Value) {
                 Console.WriteLine($"Month: {mounths[int.Parse(monthReport.Key) - 1]}({monthReport.Key})");
-                foreach (KeyValuePair<string, int> callReport in monthReport.Value) {
-                    Console.WriteLine($"{callReport.Key}: {callReport.Value} minutes");
+                foreach (KeyValuePair<string, int> phoneReport in monthReport.Value) {
+                    Console.WriteLine($"{phoneReport.Key}: {phoneReport.Value} minutes");
                 }
                 Console.WriteLine();
             }
@@ -18,11 +18,27 @@ public class Outputer {
     }
 
     public static void PrintHashtable(Hashtable table) {
-        foreach (Hashtable mounthsReport in table) {
-            foreach (Hashtable callReport in mounthsReport.Values) {
-                foreach (DictionaryEntry call in callReport) {
+        IDictionaryEnumerator yearReport = table.GetEnumerator();
+        DictionaryEntry year, mounth, call;
+        IDictionaryEnumerator monthReport, phoneReport;
+
+        while (yearReport.MoveNext()) {
+            year = (DictionaryEntry)yearReport.Current;
+            Console.WriteLine($"Year: {year.Key}");
+
+            Hashtable mountHash = (Hashtable)year.Value;
+            monthReport = mountHash.GetEnumerator();
+            while (monthReport.MoveNext()) {
+                mounth = (DictionaryEntry)monthReport.Current;
+                Console.WriteLine($"Month: {mounths[int.Parse((string)mounth.Key) - 1]}({mounth.Key})");
+
+                Hashtable phoneHash = (Hashtable)mounth.Value;
+                phoneReport = phoneHash.GetEnumerator();
+                while (phoneReport.MoveNext()) {
+                    call = (DictionaryEntry)phoneReport.Current;
                     Console.WriteLine($"{call.Key}: {call.Value} minutes");
                 }
+                Console.WriteLine();
             }
         }
     }
