@@ -1,8 +1,8 @@
 ﻿class HashSetTester {
     static void Main() {
-        HashSet<int> hashSet1 = new(){1, 2, 3, 4, 7, 8, 10};  // Всегда больше всего элементов
+        HashSet<int> hashSet1 = new(){1, 2, 3, 4, 7, 8, 10};
         HashSet<int> hashSet2 = new(){1, 3, 4, 6, 7, 9};
-        HashSet<int> hashSet3 = new(){1, 3, 4, 5, 6};  // Всегда меньше всего элементов
+        HashSet<int> hashSet3 = new(){1, 3, 4, 5, 6};
 
         DisplaySet(hashSet1, "Hashset 1:", false);
         DisplaySet(hashSet2, "Hashset 2:", false);
