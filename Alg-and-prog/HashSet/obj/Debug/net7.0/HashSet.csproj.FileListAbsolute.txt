@@ -1,0 +1,14 @@
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\bin\Debug\net7.0\HashSet.exe
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\bin\Debug\net7.0\HashSet.deps.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\bin\Debug\net7.0\HashSet.runtimeconfig.json
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\bin\Debug\net7.0\HashSet.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\bin\Debug\net7.0\HashSet.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\HashSet.GeneratedMSBuildEditorConfig.editorconfig
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\HashSet.AssemblyInfoInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\HashSet.AssemblyInfo.cs
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\HashSet.csproj.CoreCompileInputs.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\HashSet.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\refint\HashSet.dll
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\HashSet.pdb
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\HashSet.genruntimeconfig.cache
+E:\OMGTU-MO-231-AB\Alg-and-prog\HashSet\obj\Debug\net7.0\ref\HashSet.dll
