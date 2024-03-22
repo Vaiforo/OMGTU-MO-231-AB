@@ -1,20 +1,9 @@
 public class Call {
-    public string Date;
+    public string PhoneNumber;
     public int CallTime;
-    public int Day;
-    public int Mounth;
-    public int Year;
 
-    public Call(string date, int callTime) {
-        Date = date;
+    public Call(string phoneNumber, int callTime) {
+        PhoneNumber = phoneNumber;
         CallTime = callTime;
-        SetDate(date);
-    }
-
-    public void SetDate(string date) {
-        string[] dateParts = date.Split('.');
-        Day = int.Parse(dateParts[0]);
-        Mounth = int.Parse(dateParts[1]);
-        Year = int.Parse(dateParts[2]);
     }
 }
