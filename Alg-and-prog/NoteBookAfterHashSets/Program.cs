@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Security.Cryptography;
-
+﻿
 class Notebook {
     static void Main() {
         Queue<string> queue = Inputer.GetQueue();
 
-        Dictionary<string, Dictionary<string, Call>> notebook = new();
+        Dictionary<string, Dictionary<string, List<Call>>> notebook = new();
         notebook = Creater.GetNoteBook(queue);
 
         int screenStatus = 0;
@@ -45,7 +42,12 @@ class Notebook {
 
                     string fromNumber = notebook.Keys.ToArray()[Choose(ref top, ref y, ref down)];
 
-                    
+                    Console.Clear();
+
+                    var (history, mostPopularNumber) = Creater.GetHistoryOfCalls(notebook, fromNumber);
+                    Printer.PrintMostPopular(history, mostPopularNumber, fromNumber);
+
+                    screenStatus = Skip();
                 break; }
 
                 case 3: {
@@ -53,6 +55,12 @@ class Notebook {
                 break;}
             }
         }
+    }
+
+    static int Skip() {
+        Console.WriteLine("Нажмите чтобы продолжить...");
+        Console.Read();
+        return 0;
     }
 
     static int Choose(ref int top, ref int y, ref int down) {

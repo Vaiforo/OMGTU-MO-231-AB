@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NoteBookAfterHashSets")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b3c583c812a48ec60cb5710cc28ea9878fd8cbd")]
 [assembly: System.Reflection.AssemblyProductAttribute("NoteBookAfterHashSets")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NoteBookAfterHashSets")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
